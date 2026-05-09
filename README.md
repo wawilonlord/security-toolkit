@@ -15,12 +15,28 @@ Simple terminal tool for ethical hacking labs.
 python toolkit.py
 ```
 
-## Termux
+## Install
+
+Termux:
 
 ```bash
 pkg update
 pkg install python nmap dnsutils git
 python toolkit.py
+```
+
+or:
+
+```bash
+sh install.sh
+python toolkit.py
+```
+
+Linux:
+
+```bash
+sh install.sh
+python3 toolkit.py
 ```
 
 ## Windows
@@ -33,6 +49,14 @@ Install:
 Then run:
 
 ```powershell
+python toolkit.py
+```
+
+## Clone
+
+```bash
+git clone https://github.com/wawilonlord/security-toolkit.git
+cd security-toolkit
 python toolkit.py
 ```
 
