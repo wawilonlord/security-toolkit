@@ -9,10 +9,13 @@ Simple terminal tool for ethical hacking labs.
 - Email domain MX record check
 - Works on PC and Termux
 
-## Run
+## Quick Start
 
 ```bash
-python toolkit.py
+git clone https://github.com/wawilonlord/security-toolkit.git
+cd security-toolkit
+sh install.sh
+stk
 ```
 
 ## Install
@@ -22,21 +25,19 @@ Termux:
 ```bash
 pkg update
 pkg install python nmap dnsutils git
-python toolkit.py
-```
-
-or:
-
-```bash
+git clone https://github.com/wawilonlord/security-toolkit.git
+cd security-toolkit
 sh install.sh
-python toolkit.py
+stk
 ```
 
 Linux:
 
 ```bash
+git clone https://github.com/wawilonlord/security-toolkit.git
+cd security-toolkit
 sh install.sh
-python3 toolkit.py
+stk
 ```
 
 ## Windows
@@ -52,11 +53,11 @@ Then run:
 python toolkit.py
 ```
 
-## Clone
+## Commands
 
 ```bash
-git clone https://github.com/wawilonlord/security-toolkit.git
-cd security-toolkit
+stk
+security-toolkit
 python toolkit.py
 ```
 

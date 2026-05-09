@@ -3,6 +3,8 @@ set -eu
 
 echo "[*] Security Toolkit installer"
 
+PROJECT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+
 if command -v pkg >/dev/null 2>&1; then
   echo "[*] Termux detected"
   pkg update
@@ -19,5 +21,42 @@ else
   echo "[!] Install Python, Nmap, DNS tools, and Git manually."
 fi
 
+chmod +x "$PROJECT_DIR/toolkit.py"
+
+if command -v pkg >/dev/null 2>&1; then
+  BIN_DIR="${PREFIX:-$HOME/.local}/bin"
+else
+  BIN_DIR="$HOME/.local/bin"
+fi
+
+mkdir -p "$BIN_DIR"
+
+cat > "$BIN_DIR/security-toolkit" <<EOF
+#!/usr/bin/env sh
+if command -v python3 >/dev/null 2>&1; then
+  exec python3 "$PROJECT_DIR/toolkit.py" "\$@"
+fi
+exec python "$PROJECT_DIR/toolkit.py" "\$@"
+EOF
+
+cat > "$BIN_DIR/stk" <<EOF
+#!/usr/bin/env sh
+if command -v python3 >/dev/null 2>&1; then
+  exec python3 "$PROJECT_DIR/toolkit.py" "\$@"
+fi
+exec python "$PROJECT_DIR/toolkit.py" "\$@"
+EOF
+
+chmod +x "$BIN_DIR/security-toolkit" "$BIN_DIR/stk"
+
 echo "[*] Done"
-echo "[*] Run: python toolkit.py"
+echo "[*] Run: stk"
+echo "[*] Or:  security-toolkit"
+
+case ":$PATH:" in
+  *":$BIN_DIR:"*) ;;
+  *)
+    echo "[!] Add this to PATH if the command is not found:"
+    echo "    export PATH=\"\$PATH:$BIN_DIR\""
+    ;;
+esac
