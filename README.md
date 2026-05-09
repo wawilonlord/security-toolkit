@@ -7,6 +7,9 @@ Simple terminal tool for ethical hacking labs.
 - Nmap scan presets
 - Email syntax check
 - Email domain MX record check
+- DNS lookup
+- HTTP headers check
+- Ping check
 - Works on PC and Termux
 
 ## Quick Start
@@ -57,6 +60,12 @@ python toolkit.py
 
 ```bash
 stk
+stk scan example.com
+stk scan example.com 2
+stk dns example.com MX
+stk headers example.com
+stk ping example.com
+stk mail user@example.com
 security-toolkit
 python toolkit.py
 ```
