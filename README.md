@@ -1,21 +1,18 @@
-# Security Tools Dashboard
+# Security Toolkit
 
-Local ethical hacking dashboard with:
+Simple terminal tool for ethical hacking labs.
+
+## Features
 
 - Nmap scan presets
-- Email syntax and MX record check
-- PC and Termux-friendly Python server
+- Email syntax check
+- Email domain MX record check
+- Works on PC and Termux
 
 ## Run
 
 ```bash
-python server.py
-```
-
-Open:
-
-```text
-http://127.0.0.1:8787
+python toolkit.py
 ```
 
 ## Termux
@@ -23,7 +20,20 @@ http://127.0.0.1:8787
 ```bash
 pkg update
 pkg install python nmap dnsutils git
-python server.py
+python toolkit.py
+```
+
+## Windows
+
+Install:
+
+- Python
+- Nmap
+
+Then run:
+
+```powershell
+python toolkit.py
 ```
 
 ## Rule
